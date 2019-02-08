@@ -74,7 +74,7 @@ class PoliticalParties:
         else:
             custom_msg = False
         return custom_msg
-        
+
 @staticmethod
     def get_all_parties():
         """ Fetch all parties """
@@ -94,3 +94,16 @@ class PoliticalParties:
             }
 
         return custom_msg
+          @staticmethod
+    def check_id_exists(pid):
+        """ Check that provided id """
+        global POLITICAL_PARTIES
+
+        if pid in [party["id"] for party in POLITICAL_PARTIES]:
+            return True
+
+@staticmethod
+    def fetch_a_party(pid):
+        """ Fetch a political party by ID"""
+        global POLITICAL_PARTIES
+        return [party for party in POLITICAL_PARTIES if party['id'] == pid]
