@@ -79,6 +79,8 @@ class TestPolticalParties(unittest.TestCase):
             self.test_data.create_party(),
             {'status': 'Failed', 'error': 'Party already exists'}
         )
+    def test_fetching_parties(self):
+        self.assertIsInstance(self.test_data.get_all_parties(), dict)
 
 
 if __name__ == "__main__":
