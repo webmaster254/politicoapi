@@ -33,8 +33,12 @@ def parties():
                 "status": "Unprocessable Entity",
                 "error": "Empty data field"
             }), 422
-        else:
+            else:
             custom_response = jsonify(sample_party.create_party()), 201
+
+    elif request.method == "GET":
+        custom_response = jsonify(PoliticalParties.get_all_parties())
+
     else:
         pass
 
